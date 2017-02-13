@@ -30,18 +30,38 @@ Page({
     query.find().then(function (results) {
       // 成功获得实例     
       that.setData({
-        "shici": results[0].attributes,
-        "mp3Url": results[0].attributes.yuyin.attributes.url,
-        "pic": results[0].attributes.tupian.attributes.url,
-        "scId": results[0].id
+        shici: results[0].attributes,
+        mp3Url: results[0].attributes.yuyin.attributes.url,
+        pic: results[0].attributes.tupian.attributes.url,
+        scId: results[0].id
       });
-      var scId = that.data.scId;
-      app.globalData.scId = that.data.scId;
 
+      const user = AV.User.current();
+      that.setData({
+        "userId": user.id
+      })
+
+      var useroid = AV.Object.createWithoutData('_User', that.data.userId);
+      var shicioid = AV.Object.createWithoutData('Shici', that.data.scId);
+
+      var queryLinke = new AV.Query('shoucang');
+      queryLinke.equalTo('useroid', useroid);
+      queryLinke.equalTo('shicioid', shicioid);
+      queryLinke.find().then(function (result) {
+        //console.log(result.length)
+        if (result.length == 0) {
+
+          that.setData({ "isLike": 0 })
+        } else {
+          that.setData({ "isLike": 1 })
+        }
+
+      })
+      //console.log(that.data.scId)
     }, function (error) {
       // 异常处理
     });
-
+    
     //获取系统信息
     wx.getSystemInfo({
       success: function (res) {
@@ -52,35 +72,20 @@ Page({
       }
     });
 
-    //console.log(that.data.winHeight)
+    var time = new Date();
+    var m = time.getMonth() + 1;
+    var t = time.getFullYear();
+    var d = time.getDate();
+    var date = t + '-' + m + '-' + d;
+    that.setData({ 'date': date })
+    //console.log(date)
   },
 
   onReady: function () {
     // 生命周期函数--监听页面初次渲染完成
     var that = this;
-
     //获取用户信息
-    const user = AV.User.current();
-    that.setData({
-      "userId": user.id
-    })
 
-    var useroid = AV.Object.createWithoutData('_User', that.data.userId);
-    var shicioid = AV.Object.createWithoutData('Shici', that.data.scId);
-
-    var queryLinke = new AV.Query('shoucang');
-    queryLinke.equalTo('useroid', useroid);
-    queryLinke.equalTo('shicioid', shicioid);
-    queryLinke.find().then(function (result) {
-      //console.log(result.length)
-      if (result.length == 0) {
-
-        that.setData({ "isLike": 0 })
-      } else {
-        that.setData({ "isLike": 1 })
-      }
-
-    })
   },
 
   //滑动切换tab 
@@ -149,9 +154,53 @@ Page({
     //date = date.substring(0,8) 
 
     wx.navigateTo({
-      url: '../rili/rili?id='+shijian
+      url: '../rili/rili?id=' + shijian
     })
 
+  },
+
+  imageLongTap: function (e) {
+    wx.showActionSheet({
+      itemList: ['保存图片'],
+      success: function (res) {
+        //console.log(e)
+        if (res.tapIndex == 0) {
+          var imageSrc = e.currentTarget.dataset.src
+          //console.log(imageSrc)
+          wx.downloadFile({
+            url: imageSrc,
+            success: function (res) {
+              console.log(res)
+              wx.saveFile({
+                tempFilePath: res.tempFilePath,
+                success: function (res) {
+                  //console.log(res.savedFilePath)
+                  wx.showToast({
+                    title: '保存成功',
+                    icon: 'success',
+                    duration: 1000
+                  })
+                },
+                fail: function (e) {
+                  wx.showToast({
+                    title: '保存失败',
+                    icon: 'loading',
+                    duration: 1000
+                  })
+                }
+              })
+            },
+            fail: function (e) {
+              wx.showToast({
+                title: '图片下载失败',
+                icon: 'loading',
+                duration: 1000
+              })
+            }
+          })
+        }
+      }
+    })
   }
 
 })

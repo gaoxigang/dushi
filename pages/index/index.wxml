@@ -13,8 +13,9 @@
       </button>
     </view>
     <view class="rili">
-    <picker mode="date" value="{{date}}" start="2017-02-01" end="2017-09-01" bindchange="showRili"><image src="../../images/rili.png" /></picker>
-      
+      <picker mode="date" value="{{date}}" start="2017-02-01" end="{{date}}" bindchange="showRili">
+        <image src="../../images/rili.png" />
+      </picker>
     </view>
   </view>
   <view class="title">
@@ -37,7 +38,7 @@
       <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">赏析</view>
       <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">图片</view>
     </view>
-    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 228}}px;" bindchange="bindChange">
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 198}}px;" bindchange="bindChange">
 
       <!-- 语音 -->
       <swiper-item>
@@ -77,7 +78,7 @@
       <swiper-item>
         <scroll-view scroll-y="true" style="height: 100%;">
           <view>
-            <image style="width:100%; " mode="widthFix" src="{{pic}}" />
+            <image bindlongtap="imageLongTap" style="width:100%;" mode="widthFix" src="{{pic}}" data-src="{{pic}}" />
           </view>
         </scroll-view>
       </swiper-item>

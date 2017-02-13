@@ -1,5 +1,35 @@
 /**index.wxss**/
-
+.topicon{
+    margin: 2px auto;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.like{
+    margin-right: 0px;
+    padding-top: 8px;
+}
+.like button{
+    border: none;
+    text-align: center;
+}
+.like image{
+    width: 24px;
+    height: 24px;
+}
+.rili{
+    margin-right: 15px;
+}
+.rili picker{
+    border: none;
+    text-align: center;
+}
+.rili image{
+    width: 21px;
+    height: 24px;
+}
 .title{
     font-size: 20pt;
     color: #000000;

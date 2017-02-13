@@ -1,6 +1,23 @@
 
 <!--index.wxml-->
 <view wx:if="{{shici}}">
+  <view class="topicon">
+    <view class="like" wx:if="{{isLike == 0}}">
+      <button size="mini" plain="true" bindtap="addCollection">
+        <image src="../../images/like2.png" />
+      </button>
+    </view>
+    <view class="like" wx:if="{{isLike == 1}}">
+      <button size="mini" plain="true" bindtap="cancelCollection">
+        <image src="../../images/like1.png" />
+      </button>
+    </view>
+    <view class="rili">
+      <picker mode="date" value="{{date}}" start="2017-02-01" end="{{date}}" bindchange="showRili">
+        <image src="../../images/rili.png" />
+      </picker>
+    </view>
+  </view>
   <view class="title">
     <text>{{shici.title}}</text>
   </view>
@@ -24,7 +41,7 @@
     <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 228}}px;" bindchange="bindChange">
 
       <!-- 语音 -->
-      <swiper-item> 
+      <swiper-item>
         <view class="yuyin">
           <audio name="{{shici.title}}" author="{{shici.zuozhe}}" poster="https://dn-fmsruyet.qbox.me/f04ed6e3a9a6847243a8.jpg" src="{{mp3Url}}" id="myAudio" controls></audio>
         </view>
@@ -61,7 +78,7 @@
       <swiper-item>
         <scroll-view scroll-y="true" style="height: 100%;">
           <view>
-            <image style="width:100%; " mode="widthFix" src="{{pic}}" />
+            <image bindlongtap="imageLongTap" style="width:100%;" mode="widthFix" src="{{pic}}" data-src="{{pic}}" />
           </view>
         </scroll-view>
       </swiper-item>

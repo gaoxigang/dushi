@@ -61,7 +61,7 @@
       <swiper-item>
         <scroll-view scroll-y="true" style="height: 100%;">
           <view>
-            <image style="width:100%; " mode="widthFix" src="{{pic}}" />
+            <image bindlongtap="imageLongTap" style="width:100%;" mode="widthFix" src="{{pic}}" data-src="{{pic}}" />
           </view>
         </scroll-view>
       </swiper-item>
