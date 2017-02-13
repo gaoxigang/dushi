@@ -1,0 +1,65 @@
+/**index.wxss**/
+
+.title{
+    font-size: 20pt;
+    color: #000000;
+    text-align: center;
+    margin: 5rpx auto;
+}
+.zuozhe{
+    font-size: 14pt;
+    margin: 8rpx auto;
+    text-align: center;
+}
+.content{
+    font-size: 14pt;
+    margin: 8rpx auto;
+    text-align: center;
+    color: #000000;
+    line-height: 20pt;
+}
+.yuyin{
+    text-align: center;
+    margin: 0 auto;
+}
+.yuyin audio{
+    width: 100%;
+}
+.content text{
+    color: #000000;
+}
+.swiper-tab{
+	width: 100%;
+	border-bottom: 2rpx solid #b2b2b2;
+	text-align: center;
+	line-height: 22pt;
+    margin: 15rpx auto;
+}
+.swiper-tab-list{
+    font-size: 14pt;
+    display: inline-block;
+	width: 19.9%;
+	color: #888888;
+    text-align: center;
+}
+.on{ 
+    color: #09BB07;
+	border-bottom: 5rpx solid #09BB07;
+}
+.swiper-box{ 
+    display: block; 
+    width: 100%; 
+    overflow: hidden;  
+}
+.swiper-box view{
+	text-align: left;
+    padding: 5rpx 25rpx;
+    font-size: 13pt;
+    line-height: 18pt;
+    color: #353535;
+    min-height: 200px;
+    height: 200px;
+}
+.clear{
+    clear: both;
+}

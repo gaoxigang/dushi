@@ -1,0 +1,12 @@
+<view class="toolsall">
+  <view class="zidian">
+    <navigator url="../zidian/zidian">
+      <image src="https://dn-fmsruyet.qbox.me/d6796cf4c3d99b37f183.png" mode="widthFix" />
+    </navigator>
+  </view>
+  <view class="cidian">
+    <navigator url="../cidian/cidian">
+      <image src="https://dn-fmsruyet.qbox.me/39276e67a9fbca39a941.png" mode="widthFix" />
+    </navigator>
+  </view>
+</view>

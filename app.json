@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/tools/tools",
+    "pages/user/user",
+    "pages/cidian/cidian",
+    "pages/zidian/zidian",
+    "pages/rili/rili",
+    "pages/show/show",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "每天读一首",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#09bb07",
+    "borderStyle": "black",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "今读",
+      "iconPath": "images/shici1.png",
+      "selectedIconPath": "images/shici.png"
+    }, {
+      "pagePath": "pages/tools/tools",
+      "text": "工具",
+      "iconPath": "images/tools1.png",
+      "selectedIconPath": "images/tools.png"
+    }, {
+      "pagePath": "pages/user/user",
+      "text": "我",
+      "iconPath": "images/my1.png",
+      "selectedIconPath": "images/my.png"
+    }]
+  }
+}

@@ -1,0 +1,24 @@
+page{
+    background-color: #EEEEEE;
+}
+.inputcls{
+    padding-left: 40px;
+    height: 40px;
+    background: #fff url(/images/Search.png) no-repeat 3px 6px fixed;
+    background-size: 24px 24px;
+}
+.btncls{
+    width: 70%;
+    margin: 10px auto;
+}
+.resall{    
+    font-size: 15px;
+    width: 92%;
+    margin: 0 auto;
+    line-height: 24px;
+}
+.resname{
+    font-size: 16px;
+    text-align: center;
+    margin: 5px auto;
+}

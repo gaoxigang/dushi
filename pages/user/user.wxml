@@ -1,0 +1,18 @@
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <view class="shoucangall">
+    <view class="sctitle"><text>收藏列表</text></view>
+    <view class="sclist" wx:for="{{shicis}}" wx:for-index="idx" wx:for-item="itemShici">
+      <view>
+        <navigator url="../show/show?id={{itemShici.shici.objectId}}"><text>·  {{itemShici.shici.title}} </text></navigator>
+      </view>
+    </view>
+  </view>
+</view>

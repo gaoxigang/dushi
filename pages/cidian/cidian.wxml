@@ -1,0 +1,18 @@
+<form>
+    <input bindinput="inputCidian" placeholder="输入词组或成语" class="inputcls" cursor-spacing="15px"/>
+    <button bindtap="chaCidian" type="primary" class="btncls">查询词典</button>
+</form>
+
+<view class="resall" wx:if="{{res}}">
+    <scroll-view scroll-y="true" style="height: {{winHeight - 106}}px;">
+        <view class="resname">
+            <text style="font-weight: bold;">{{res.name}}</text><text wx:if="{{res.pinyin}}">({{(res.pinyin)}})</text>
+        </view>
+        <view wx:if="{{res.comefrom}}"><text style="font-weight: bold;">出处：</text><text>{{res.comefrom}}</text></view>
+        <view wx:if="{{res.content}}"><text style="font-weight: bold;">内容：</text><text>{{res.content}}</text></view>
+        <view wx:if="{{res.example}}"><text style="font-weight: bold;">举例：</text><text>{{res.example}}</text></view>
+        <view wx:if="{{res.fan}}"><text style="font-weight: bold;">反义词：</text><text>{{res.fan}}</text></view>
+        <view wx:if="{{res.jin}}"><text style="font-weight: bold;">近义词：</text><text>{{res.jin}}</text></view>
+        
+    </scroll-view>
+</view>

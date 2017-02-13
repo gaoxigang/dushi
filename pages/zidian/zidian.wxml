@@ -1,0 +1,24 @@
+
+<form>
+    <input bindinput="inputCidian" placeholder="输入单个文字" class="inputcls" cursor-spacing="15px"/>
+    <button bindtap="chaCidian" type="primary" class="btncls">查询字典</button>
+</form>
+
+<view class="resall" wx:if="{{res}}">
+    <scroll-view scroll-y="true" style="height: {{winHeight - 106}}px;">
+        <view class="resname">
+            <text style="font-weight: bold;">{{res.name}}</text><text wx:if="{{res.pinyin}}">({{(res.pinyin)}})</text>
+        </view>
+        <view wx:if="{{res.bihua}}"><text style="font-weight: bold;">笔画：</text><text>{{res.bihua}}</text></view>
+        <view wx:if="{{res.bushou}}"><text style="font-weight: bold;">部首：</text><text>{{res.bushou}}</text></view>
+        <view wx:if="{{res.bishun}}"><text style="font-weight: bold;">笔顺：</text><text>{{res.bishun}}</text></view>
+        <view wx:if="{{res.jiegou}}"><text style="font-weight: bold;">结构：</text><text>{{res.jiegou}}</text></view>
+        <view wx:if="{{res.wubi}}"><text style="font-weight: bold;">五笔：</text><text>{{res.wubi}}</text></view>
+        <view wx:if="{{res.english}}"><text style="font-weight: bold;">英文：</text><text>{{res.english}}</text></view>
+        <view wx:if="{{res.explain}}"><text style="font-weight: bold;">举例：</text>
+            <text wx:for="{{res.explain}}">
+                {{item.pinyin}}： {{item.content}}
+            </text>
+        </view>
+    </scroll-view>
+</view>
